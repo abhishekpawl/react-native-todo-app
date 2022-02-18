@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
 
 export default function ViewTodo({todos, deleteHandler}) {
   return (
@@ -11,7 +12,8 @@ export default function ViewTodo({todos, deleteHandler}) {
             <View style={styles.todoContainer}>
               <Text style={styles.todo}>{item.text}</Text>
               <TouchableOpacity style={styles.todoCross} onPress={() => deleteHandler(item.key)}>
-                <Text style={styles.cross}>&#10060;</Text>
+                {/* <Text style={styles.cross}>&#10060;</Text> */}
+                <MaterialIcons name="delete" size={24} color="black" />
               </TouchableOpacity>
             </View>
           )}
@@ -26,10 +28,11 @@ const styles = StyleSheet.create({
     padding: 20,
     color: 'black',
     flex: 1,
+    marginTop: 5,
   },
   todo: {
     marginBottom: 20,
-    padding: 10,
+    padding: 15,
     fontSize: 20,
     fontWeight: "bold",
     fontFamily: 'notoserif',
@@ -40,7 +43,7 @@ const styles = StyleSheet.create({
   list: {flex: 1},
   todoCross: {
     marginBottom: 20,
-    padding: 10,
+    padding: 18,
     fontWeight: "bold",
     fontFamily: 'notoserif',
   },
