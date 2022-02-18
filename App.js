@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { StyleSheet, View, Alert } from 'react-native';
+import { StyleSheet, View, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import AddTodo from './components/AddTodo';
@@ -48,12 +48,14 @@ export default function App() {
   const updateText = (value) => setNewtodo(value);
 
   return (
-    <View style={styles.container}>
-      <LinearGradient colors={['#2b5876', '#4e4376']} style={styles.container}>
-        <AddTodo submitHandler={submitHandler} updateText={updateText}/>
-        <ViewTodo todos={todos} deleteHandler={deleteHandler} />
-      </LinearGradient>
-    </View>
+    <TouchableWithoutFeedback onPress={() => {Keyboard.dismiss()}}>
+      <View style={styles.container}>
+        <LinearGradient colors={['#2b5876', '#4e4376']} style={styles.container}>
+          <AddTodo submitHandler={submitHandler} updateText={updateText}/>
+          <ViewTodo todos={todos} deleteHandler={deleteHandler} />
+        </LinearGradient>
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 

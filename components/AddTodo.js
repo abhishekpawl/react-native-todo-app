@@ -12,7 +12,7 @@ export default function AddTodo({submitHandler, updateText}) {
       />
       <View style={styles.addButtonOuter}>
         <View style={styles.addButtonInner}>
-          <Button title='add' color="#777" onPress={submitHandler}/>
+          <Button title='add' color="#0ba360" onPress={submitHandler}/>
         </View>
       </View>
     </View>
